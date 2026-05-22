@@ -1,0 +1,11 @@
+echo "node_modules/
+.env" > backend/.gitignore
+
+echo "node_modules/
+dist/
+.env" > frontend/.gitignore
+
+node_modules/
+.env
+dist/
+*.log
