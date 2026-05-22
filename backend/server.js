@@ -9,7 +9,11 @@ connectDB();
 const app = express();
 
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:5173', 'http://localhost:4173'],
+  origin: [
+    'https://mindspace-project-vrkx-b7ricf50a-sohit-punias-projects.vercel.app',
+    'https://mindspace-project-vrkx.vercel.app',
+    'http://localhost:5173'
+  ],
   credentials: true
 }));
 app.use(express.json());
