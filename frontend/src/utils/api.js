@@ -19,5 +19,9 @@ api.interceptors.response.use(
     return Promise.reject(err);
   }
 );
-
+const api = axios.create({ 
+  baseURL: import.meta.env.VITE_API_URL 
+    ? `${import.meta.env.VITE_API_URL}/api` 
+    : '/api' 
+});
 export default api;
