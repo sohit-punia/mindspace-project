@@ -9,12 +9,15 @@ connectDB();
 const app = express();
 
 app.use(cors({
-  origin: [
-    'https://mindspace-project-eight.vercel.app',
-    'https://mindspace-project-vrkx-git-main-sohit-punias-projects.vercel.app',
-    'https://mindspace-project-vrkx.vercel.app',
-    'http://localhost:5173'
-  ],
+  origin: function(origin, callback) {
+    if (!origin || 
+        origin.endsWith('.vercel.app') || 
+        origin === 'http://localhost:5173') {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
 app.use(express.json());
