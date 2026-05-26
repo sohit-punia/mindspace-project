@@ -10,13 +10,19 @@ const app = express();
 
 app.use(cors({
   origin: [
-    'https://mindspace-project-vrkx-b7ricf50a-sohit-punias-projects.vercel.app',
+    'https://mindspace-project-eight.vercel.app',
+    'https://mindspace-project-vrkx-git-main-sohit-punias-projects.vercel.app',
     'https://mindspace-project-vrkx.vercel.app',
     'http://localhost:5173'
   ],
   credentials: true
 }));
 app.use(express.json());
+// Keep alive ping
+setInterval(() => {
+  fetch('https://mindspace-backend-gk8v.onrender.com')
+    .catch(() => {});
+}, 840000); // every 14 minutes
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
